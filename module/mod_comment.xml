@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @copyright	Copyright (c) 2014 Anatoly Smirnov. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+-->
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>Ajax comments</name>
+	<author>Anatoly Smirnov</author>
+	<creationDate>November 2014</creationDate>
+	<copyright>Copyright (c) 2014 site. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>tol171@yandex.ru</authorEmail>
+	<authorUrl>http://mcentre.spb.ru</authorUrl>
+	<version>0.0.1</version>
+	<description>
+	<![CDATA[
+	
+	]]>
+	</description>
+
+	<files>
+		<filename module="mod_comment">mod_comment.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+                <folder>css</folder>
+                <folder>js</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.mod_comment.ini</language>
+		<language tag="en-GB">en-GB.mod_comment.sys.ini</language>
+	</languages>
+</extension>

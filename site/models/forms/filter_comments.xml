@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" hint="JSEARCH_FILTER"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+        
+        <field name="answer" type="list" onchange="this.form.submit();">
+            <option value="">COM_COMMENT_COMMENTS_ANSWER_FILTER</option>
+            <option value="0">COM_COMMENT_COMMENTS_ANSWER_OPTION_0</option>
+            <option value="1">COM_COMMENT_COMMENTS_ANSWER_OPTION_1</option>
+        </field>
+
+    </fields>
+</form>

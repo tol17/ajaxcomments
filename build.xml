@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="comment" default="deploy" basedir=".">
+    <property file="nbproject\\private\\private.properties" />
+    <property file="nbproject\\project.properties" />
+    <property file="${netbeans.user}\\config\\Preferences\\org\\netbeans\\modules\\php\\project\\RemoteConnections\\${remote.connection}.properties" />
+
+    <property name="src" location="./"/>
+    <property name="adminsrc" location="admin"/>
+    <property name="sitesrc" location="site"/>
+    <property name="build" location="nbproject/packages"/>   
+    <property name="manifest"  value="${src}/${ant.project.name}.xml" />
+    
+    <!-- run all the targets-->
+    <target name="all" depends="run-ftp,zipup">
+    </target>
+    <target name="run-ftp" description="Uploading files to the various places">
+        <!-- Create Directories -->
+        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/components/com_${ant.project.name}" />
+        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/administrator/components/com_${ant.project.name}" />
+        <!-- Copy Files -->
+        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/components/com_${ant.project.name}">
+            <fileset dir="${sitesrc}">
+                <exclude name="**/*.svn/"/>
+                <exclude name="**/*.git*/"/>
+                <exclude name="**/nbproject/**"/>
+                <exclude name="build.xml"/>
+            </fileset>
+        </ftp>
+        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/administrator/components/com_${ant.project.name}">
+            <fileset dir="${adminsrc}">
+                <exclude name="**/*.svn/"/>
+                <exclude name="**/*.git*/"/>
+                <exclude name="**/nbproject/**"/>
+                <exclude name="build.xml"/>
+            </fileset>
+        </ftp>
+    </target> 
+    <target name="zipup" description="zips the archive" >
+        <mkdir dir="${build}"/>
+        <zip destfile="${build}/com_${ant.project.name}.zip">
+            <zipfileset dir="${src}" excludes="pkg_comment.xml, build.xml,**/*.git*/,**/.svn/,**/nbproject/**,**/module/**"/>
+        </zip>
+        <zip destfile="${build}/mod_${ant.project.name}.zip">
+            <zipfileset dir="${src}/module"/>
+        </zip>
+        <zip destfile="${src}/package/${ant.project.name}.v0.0.1.zip">
+            <zipfileset dir="${build}" prefix="packages"/>
+            <zipfileset file="pkg_comment.xml"/>
+        </zip>
+    </target>
+    
+    <target name="deploy" >
+      <copy todir="../jtest/administrator/components/com_${ant.project.name}">
+         <fileset dir="${src}/administrator"/>
+      </copy>
+      <copy todir="../jtest/administrator/language/en-GB">
+         <fileset dir="${src}/languages/administrator/en-GB"/>
+      </copy>
+      <copy todir="../jtest/components/com_${ant.project.name}">
+         <fileset dir="${src}/site"/>
+      </copy>
+      <copy todir="../jtest/language/en-GB">
+         <fileset dir="${src}/languages/site/en-GB"/>
+      </copy>
+    </target>
+   
+</project>
