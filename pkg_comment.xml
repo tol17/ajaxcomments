@@ -3,7 +3,7 @@
  <name>Comment Package</name>
  <author>Anatoly Smirnov</author>
  <creationDate>November 2014</creationDate>
- <packagename>Comments</packagename>
+ <packagename>comment</packagename>
  <version>0.0.1</version>
  <url>http://www.mcentre.spb.ru/</url>
  <packager>Anatoly Smirnov</packager>
@@ -11,7 +11,7 @@
  <description>Ajax comments</description>
  <update>http://www.mcentre.spb.ru/</update>
  <files folder="packages">
-   <file type="component" id="comment" >com_comment.zip</file>
-   <file type="module" id="comment" client="site">mod_comment.zip</file>
+   <file type="component" id="com_comment" >com_comment.zip</file>
+   <file type="module" id="mod_comment" client="site">mod_comment.zip</file>
  </files>
  </extension>
