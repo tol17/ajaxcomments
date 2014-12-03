@@ -63,6 +63,17 @@
       <copy todir="../jtest/language/en-GB">
          <fileset dir="${src}/languages/site/en-GB"/>
       </copy>
+      
+      <copy todir="../jtest/modules/mod_${ant.project.name}">
+          <fileset dir="${src}/module">
+              <exclude name="**/languages/**"/>
+          </fileset>
+      </copy>
+      <copy todir="../jtest/language/en-GB">
+          <fileset dir="${src}/module/languages"/>
+      </copy>
+      
+      
     </target>
    
 </project>

@@ -14,6 +14,9 @@ $document->addStyleSheet(JURI::root(true) . "/modules/mod_comment/css/ajaxcommen
 
 ?>
 
-<div class="controls">
-     <a class="btn" id="comment" href="" title="<?php echo JText::_('MOD_COMMENT'); ?>"><?php echo JText::_('MOD_COMMENT'); ?></a>
+<div class="modcomment">
+     <a class="servicebtn" id="comment" href="" title="<?php echo JText::_('MOD_COMMENT'); ?>">
+         <span class="glyphicon glyphicon-edit"></span>
+         <?php echo JText::_('MOD_COMMENT'); ?>
+     </a>
 </div>
