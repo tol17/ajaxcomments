@@ -29,7 +29,7 @@
                 <folder>js</folder>
 	</files>
 
-	<languages>
+	<languages folder="languages">
 		<language tag="en-GB">en-GB.mod_comment.ini</language>
 		<language tag="en-GB">en-GB.mod_comment.sys.ini</language>
 	</languages>
